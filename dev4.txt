@@ -1,0 +1,21 @@
+FROM openjdk:23
+WORKDIR /app
+COPY vin.java /app/vin.java
+RUN javac vin.java
+CMD ["java","vin"]
+
+
+class vin{
+    public static void main(String[] args){
+        System.out.println("hi");
+    }
+}
+
+FROM python:3.10-slim
+WORKDIR /app
+COPY me.py /app
+CMD ["python","me.py"]
+
+docker build -t new
+
+docker run -it new
